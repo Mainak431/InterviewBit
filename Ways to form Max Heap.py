@@ -2,6 +2,14 @@ import operator as op
 from functools import reduce
 import numpy
 
+#At every level of the tree there will be two options,
+#K nodes can go in left subtree and others in right subtree
+#One node will be left out as root so n-1-k can be in right subtree
+#We can select this k node in left subtree in (n-1)Ck ways
+#For each of this ways, no of subtree is (n - 1)Ck * dp[k] * dp[n - 1 - k] ways.
+#This problem satisfies overlapping subproblem property
+#Hence can be solved using DP.
+
 MOD = 10 ** 9 + 7
 def ncr(n, r):
         r = min(r, n-r)
